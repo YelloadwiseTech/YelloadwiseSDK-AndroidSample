@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.github.triplet.play'
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+            storePassword "yelloadwise"
+            keyAlias "yelloadwise"
+            keyPassword "yelloadwise"
+        }
+
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "ir.yelloadwise.sample"
+
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 100000000
+        versionName "1.0.0"
+
+        multiDexEnabled true
+
+        buildConfigField "String", "YELLOADWISE_KEY", "\"ltfkorokanogbgeaomjelhhdagscttcqolkgjenmqdaoqqqrtronmljgqesappdlnodjcn\""
+        buildConfigField "String", "YELLOADWISE_INTERSTITIAL_BANNER", "\"6669abd49e59890f34226a7d\""
+        buildConfigField "String", "YELLOADWISE_INTERSTITIAL_VIDEO", "\"6669abd49e59890f34226a7d\""
+        buildConfigField "String", "YELLOADWISE_REWARDED_VIDEO", "\"66697c5d4d47a075b991d25e\""
+        buildConfigField "String", "YELLOADWISE_NATIVE_VIDEO", "\"6669ac04b01be862b10dd79b\""
+        buildConfigField "String", "YELLOADWISE_NATIVE_BANNER", "\"6669ac8c9e59890f34226a82\""
+        buildConfigField "String", "YELLOADWISE_STANDARD_BANNER", "\"6669ac1c1a7e2d79ec8974b5\""
+        buildConfigField "String", "YELLOADWISE_VAST", "\"66695aa06bbb2e4838a4d154\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled false
+        }
+    }
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a' //select ABIs to build APKs for
+            universalApk true //generate an additional APK that contains all the ABIs
+        }
+    }
+}
+
+
+play {
+    jsonFile = file('key.json')
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.fragment:fragment:1.6.2'
+
+    implementation 'ir.yelloadwise.app:yelloadwise-app-android:1.0.0'
+
+    implementation("androidx.media3:media3-ui:1.1.1")
+    implementation("androidx.media3:media3-exoplayer:1.1.1")
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.34.0'
+    implementation 'com.google.android.gms:play-services-ads-base:23.1.0'
+
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
+}
