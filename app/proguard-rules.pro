@@ -103,5 +103,3 @@
 }
 
 -keep public class com.bumptech.glide.**
-
--keep class ir.yelloadwise.app.** { *; }
