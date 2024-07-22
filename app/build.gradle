@@ -32,14 +32,14 @@ android {
 
         multiDexEnabled true
 
-        buildConfigField "String", "YELLOADWISE_KEY", "\"ltfkorokanogbgeaomjelhhdagscttcqolkgjenmqdaoqqqrtronmljgqesappdlnodjcn\""
-        buildConfigField "String", "YELLOADWISE_INTERSTITIAL_BANNER", "\"6669abd49e59890f34226a7d\""
-        buildConfigField "String", "YELLOADWISE_INTERSTITIAL_VIDEO", "\"6669abd49e59890f34226a7d\""
-        buildConfigField "String", "YELLOADWISE_REWARDED_VIDEO", "\"66697c5d4d47a075b991d25e\""
-        buildConfigField "String", "YELLOADWISE_NATIVE_VIDEO", "\"6669ac04b01be862b10dd79b\""
-        buildConfigField "String", "YELLOADWISE_NATIVE_BANNER", "\"6669ac8c9e59890f34226a82\""
-        buildConfigField "String", "YELLOADWISE_STANDARD_BANNER", "\"6669ac1c1a7e2d79ec8974b5\""
-        buildConfigField "String", "YELLOADWISE_VAST", "\"66695aa06bbb2e4838a4d154\""
+        buildConfigField "String", "YELLOADWISE_KEY", "\"jrgosnsbcetqqjiepqecgarqaroktoakqdndlarbsgocjaamikdeqcsitdejtpiidsjjlr\""
+        buildConfigField "String", "YELLOADWISE_INTERSTITIAL_BANNER", "\"6684f77c62abbf3b38d3f938\""
+        buildConfigField "String", "YELLOADWISE_INTERSTITIAL_VIDEO", "\"6684f6ce81cb3204af2991a1\""
+        buildConfigField "String", "YELLOADWISE_REWARDED_VIDEO", "\"6684f6f509ab0847f467dada\""
+        buildConfigField "String", "YELLOADWISE_NATIVE_VIDEO", "\"6684f709fb32c950535f6cda\""
+        buildConfigField "String", "YELLOADWISE_NATIVE_BANNER", "\"6684f7e85b04632f22ea0fe4\""
+        buildConfigField "String", "YELLOADWISE_STANDARD_BANNER", "\"6684f740fb32c950535f6cdb\""
+        buildConfigField "String", "YELLOADWISE_VAST", "\"6684f66009ab0847f467dad5\""
     }
 
     buildTypes {
