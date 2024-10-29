@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ir.yelloadwise.sample.BuildConfig;
-import ir.yelloadwise.sample.R;
-import ir.yelloadwise.sample.utils.Tools;
 import ir.yelloadwise.app.YelloadwiseAdRequestListener;
 import ir.yelloadwise.app.nativeads.YelloadwiseNativeBannerManager;
+import ir.yelloadwise.app.nativeads.YelloadwiseNativeBannerType;
 import ir.yelloadwise.app.nativeads.YelloadwiseNativeBannerViewManager;
+import ir.yelloadwise.sample.R;
+import ir.yelloadwise.sample.utils.Tools;
 
 public class NativeBannerActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -62,6 +62,7 @@ public class NativeBannerActivity extends AppCompatActivity implements View.OnCl
 
     private void requestNativeBannerAd() {
         YelloadwiseNativeBannerManager.getAd(this, BuildConfig.YELLOADWISE_NATIVE_BANNER,
+                YelloadwiseNativeBannerType.BANNER_1136x640,
                 new YelloadwiseAdRequestListener() {
                     @Override
                     public void onAdAvailable(String adId) {
